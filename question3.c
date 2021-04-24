@@ -28,7 +28,7 @@ int listSumOfPrimePairs(int k){
 		printf("k must be an even number and >= 8");
 	}
 	else{
-		for(i = 2; i <= k/2; i++){
+		for(i = 2; i <= k / 2; i++){
 			if(isPrime(i) == 0 && isPrime(k - i) == 0){
 				printf("%d = %d + %d\n", k, k - i, i);
 			}
