@@ -17,10 +17,10 @@ int main(){
 //reverse and make 9's complement
 void reverseNum(int num){
 	if(num < 10){ 
-		printf("%d", 9 - num); 
+		printf("%d", 9-num); 
 	}
 	else{
-		printf("%d", 9 - num % 10);
-		reverseNum(num / 10);
+		printf("%d", 9-num%10);
+		reverseNum(num/10);
 	}
 }

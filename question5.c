@@ -47,7 +47,7 @@ int bubblesort(int *seating){
 	int pass, i, j;
 	for(pass = 0; i < 9; pass++){
 		for(i = 0; i < 9; i++){
-			j = i + 1;
+			j = i+1;
 			if(seating[i] == 0) //skip 0
 				continue; 
 			}

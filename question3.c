@@ -24,11 +24,11 @@ int isPrime(int i){ //check whether the number is prime number
 
 int listSumOfPrimePairs(int k){
 	int i;
-	if(k % 2 != 0 || k < 8){ //The condition of input
+	if(k%2 != 0 || k < 8){ //The condition of input
 		printf("k must be an even number and >= 8");
 	}
 	else{
-		for(i = 2; i <= k / 2; i++){
+		for(i = 2; i <= k/2; i++){
 			if(isPrime(i) == 0 && isPrime(k-i) == 0){ //If the two numbers are prime number
 				printf("%d = %d + %d\n", k, k-i, i);
 			}
