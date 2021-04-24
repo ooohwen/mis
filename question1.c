@@ -13,7 +13,7 @@ int main(){
 }
 
 int longesWord(char *sentence){
-	//declare and initiallize
+	//declare and initialize
 	int lettercount = 0, wordcount = 0; //count letters and words
 	int max_lettercount = 0, max_lettercount_position = 0;
 	int i;
@@ -40,7 +40,7 @@ int longesWord(char *sentence){
 			}
 		}
 		sentence++; //to next letter
-		lettercount = 0; //initiallize
+		lettercount = 0; //initialize
 	}
 	printf("\"%s\" is the longest word in the sentence.\n", the_longest_word);
 	return max_lettercount_position;
