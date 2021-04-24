@@ -21,9 +21,9 @@ void freqTrans(char *str)
 	while(*str != '\0')
 	{
 
-		for(i = 0; *(str + i + 1) != '\0'; i++) 
+		for(i = 0; *(str+i+1) != '\0'; i++) 
 		{
-			if(*str == *(str + i) && *(str + 1) == *(str + i + 1)) //if they are the same
+			if(*str == *(str+i) && *(str+1) == *(str+i+1)) //if they are the same
 			{
 				count++; //how many times
 			}
@@ -34,7 +34,7 @@ void freqTrans(char *str)
 			//store
 			max = count;
 			first_letter = *str; 
-			second_letter = *(str + 1);
+			second_letter = *(str+1);
 		}
 		count = 0;
 		str++; //to next letter

@@ -29,8 +29,8 @@ int listSumOfPrimePairs(int k){
 	}
 	else{
 		for(i = 2; i <= k / 2; i++){
-			if(isPrime(i) == 0 && isPrime(k - i) == 0){ //If the two numbers are prime number
-				printf("%d = %d + %d\n", k, k - i, i);
+			if(isPrime(i) == 0 && isPrime(k-i) == 0){ //If the two numbers are prime number
+				printf("%d = %d + %d\n", k, k-i, i);
 			}
 		}
 	}
