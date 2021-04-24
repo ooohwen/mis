@@ -17,7 +17,7 @@ void reverseNum(int num){
 		printf("%d", 9 - num);
 	}
 	else{
-		printf("%d", 9- num % 10);
+		printf("%d", 9 - num % 10);
 		reverseNum(num / 10);
 	}
 }
