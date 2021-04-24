@@ -24,7 +24,7 @@ int isPrime(int i){
 
 int listSumOfPrimePairs(int k){
 	int i;
-	if(k==2 || k%2!=0 || k<8){
+	if(k == 2 || k % 2 != 0 || k < 8){
 		printf("k must be an even number and >= 8");
 	}
 	else{
