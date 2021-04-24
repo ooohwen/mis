@@ -44,7 +44,7 @@ int longesWord(char *sentence){
 	}
 	printf("\"%s\" is the longest word in the sentence.\n", the_longest_word);
 	return max_lettercount_position;
-	}
+}
 	
 //check whether the character is letter or not
 int isLetter(char c){
