@@ -75,7 +75,7 @@ void withdraw(struct bankAccount data[]){
 		data[i].balance -= amount; 
 	}
 	else{
-		printf("Warning : %s's balance is not enough!\n");
+		printf("Warning : %s's balance is not enough!\n", data[i].id);
 	}
 }
 
