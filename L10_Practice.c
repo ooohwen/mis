@@ -20,11 +20,15 @@ int main(){
 	unsigned int choice;
 	char item;
 	
+	printf("Enter your choice:\n");
+	printf("   1 to insert an element into the list.\n");
+	printf("   2 to delete an element from the list.\n");
+	printf("   3 to end.");
 	
-	printf("?");
+	printf("\n?");
 	scanf("%u", &choice);
 	
-	while(choice != 3){
+	while(choice!=3){
 		switch(choice){
 			case 1:
 				printf("Enter a character: ");
@@ -53,13 +57,19 @@ int main(){
 		
 			default:
 				puts("Invalid choice.\n");
-				
+				printf("Enter your choice:\n");
+				printf("   1 to insert an element into the list.\n");
+				printf("   2 to delete an element from the list.\n");
+				printf("   3 to end.\n");
 				break;
 		}
 		
-		printf("?");
+		printf("\n?");
 		scanf("%u", &choice);	
 	}
+	
+	printf("End of run.");
+	
 	return 0;
 }
 
@@ -130,7 +140,7 @@ char Delete(ListNodePtr *sPtr, char value){
 		
 		while(currentPtr != NULL && currentPtr->data != value){
 			previousPtr = currentPtr;
-			previousPtr->nextPtr = currentPtr->nextPtr;
+			currentPtr = currentPtr->nextPtr;
 		}
 		
 		if(currentPtr != NULL){
@@ -146,4 +156,3 @@ char Delete(ListNodePtr *sPtr, char value){
 int isEmpty(ListNodePtr sPtr){
 	return sPtr == NULL;
 }
-
