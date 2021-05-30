@@ -13,24 +13,25 @@ void insert(ListNodePtr *sPtr, char value);
 char Delete(ListNodePtr *sPtr, char value);
 int isEmpty(ListNodePtr sPtr);
 void printList(ListNodePtr currentPtr);
-void instructions();
+
 
 int main(){
 	ListNodePtr startPtr = NULL;
 	unsigned int choice;
 	char item;
 	
-	instructions();
+	
 	printf("?");
 	scanf("%u", &choice);
 	
-	while(choice!=3){
+	while(choice != 3){
 		switch(choice){
 			case 1:
-			printf("Enter a character: ");
-			scanf("\n%c", &item);
-			insert( &startPtr, item);
-			break;
+				printf("Enter a character: ");
+				scanf("\n%c", &item);
+				insert( &startPtr, item);
+				printList(startPtr);
+				break;
 			
 			case 2:
 				if(!isEmpty(startPtr)){
@@ -52,13 +53,14 @@ int main(){
 		
 			default:
 				puts("Invalid choice.\n");
-				instructions();
+				
 				break;
 		}
 		
 		printf("?");
 		scanf("%u", &choice);	
 	}
+	return 0;
 }
 
 
@@ -86,6 +88,9 @@ void insert(ListNodePtr *sPtr, char value){
 	
 	if(newPtr != NULL){
 		newPtr->data = value;
+		newPtr->nextPtr = NULL;
+		
+		previousPtr = NULL;
 		currentPtr = *sPtr; 
 		
 		while(currentPtr != NULL && value > currentPtr->data){
@@ -116,6 +121,13 @@ char Delete(ListNodePtr *sPtr, char value){
 	if(value == (*sPtr)->data){
 		tempPtr = *sPtr;
 		*sPtr = (*sPtr)->nextPtr;
+		free(tempPtr);
+		return value;
+	}	
+	else{
+		previousPtr = *sPtr;
+		currentPtr = (*sPtr)->nextPtr;
+		
 		while(currentPtr != NULL && currentPtr->data != value){
 			previousPtr = currentPtr;
 			previousPtr->nextPtr = currentPtr->nextPtr;
@@ -134,5 +146,4 @@ char Delete(ListNodePtr *sPtr, char value){
 int isEmpty(ListNodePtr sPtr){
 	return sPtr == NULL;
 }
-
 
