@@ -51,11 +51,11 @@ void printList(ListNodePtr currentPtr){
 } 
 
 
-void printRevList(ListNodePtr *sPtr){
+void printRevList(ListNodePtr sPtr){
 
 	ListNodePtr previousPtr = NULL;  
-	ListNodePtr currentPtr = *sPtr;
-	ListNodePtr precedingPtr = (*sPtr)->nextPtr;
+	ListNodePtr currentPtr = sPtr;
+	ListNodePtr precedingPtr = sPtr->nextPtr;
 	
 	while(precedingPtr != NULL){
 		currentPtr = previousPtr; // 把current->next轉向
@@ -64,7 +64,7 @@ void printRevList(ListNodePtr *sPtr){
 		precedingPtr = precedingPtr->nextPtr; // preceding更新成NULL即跳出while loop
 	}
 	currentPtr->nextPtr = previousPtr; // 此時current位於最後一個node, 將current->next轉向
-	*sPtr = currentPtr;          // 更新first為current
+	sPtr = currentPtr;          // 更新first為current
 	printf("Reverse Linked List: ");
 	puts("NULL<--");
 	while(currentPtr != NULL){
