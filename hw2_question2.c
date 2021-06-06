@@ -60,7 +60,7 @@ void printRevList(ListNodePtr sPtr){
 	while(precedingPtr != NULL){
 		currentPtr = previousPtr; // 把current->next轉向
 		previousPtr = currentPtr; // previous往後挪
-		currentPtr = precedingPtr->nextPtr; // current往後挪
+		currentPtr = precedingPtr; // current往後挪
 		precedingPtr = precedingPtr->nextPtr; // preceding更新成NULL即跳出while loop
 	}
 	currentPtr->nextPtr = previousPtr; // 此時current位於最後一個node, 將current->next轉向
