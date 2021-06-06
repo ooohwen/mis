@@ -76,9 +76,9 @@ void printRevList(ListNodePtr *sPtr){
 
 int main(){
 	ListNodePtr startPtr = NULL;
-	insert(startPtr, 'a');
-	insert(startPtr, 'b');
-	insert(startPtr, 'c');
+	insert(&startPtr, 'a');
+	insert(&startPtr, 'b');
+	insert(&startPtr, 'c');
 	
 	printList(startPtr);
 	printRevList(startPtr);
