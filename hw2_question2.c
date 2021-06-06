@@ -43,7 +43,7 @@ void printList(ListNodePtr currentPtr){
 	printf("Oringinal Linked List: ");
 			
 	while(currentPtr != NULL){
-		printf("%c-->", currentPtr->data);
+		printf("%c--> ", currentPtr->data);
 		currentPtr = currentPtr->nextPtr;
 	}
 	
@@ -58,7 +58,7 @@ void printRevList(ListNodePtr sPtr){
 	ListNodePtr precedingPtr = sPtr->nextPtr;
 	
 	while(precedingPtr != NULL){
-		currentPtr = previousPtr; // 把current->next轉向
+		currentPtr->nextPtr = previousPtr; // 把current->next轉向
 		previousPtr = currentPtr; // previous往後挪
 		currentPtr = precedingPtr; // current往後挪
 		precedingPtr = precedingPtr->nextPtr; // preceding更新成NULL即跳出while loop
@@ -66,13 +66,18 @@ void printRevList(ListNodePtr sPtr){
 	currentPtr->nextPtr = previousPtr; // 此時current位於最後一個node, 將current->next轉向
 	sPtr = currentPtr;          // 更新first為current
 	printf("Reverse Linked List: ");
-	puts("NULL<--");
+
+	printf("NULL");
 	while(currentPtr != NULL){
-		printf("%c<--", currentPtr->data);
+		printf(" <--%c", currentPtr->data);
 		currentPtr = currentPtr->nextPtr;
-	}
-	
+		}
 }
+		
+	
+	
+	
+
 
 int main(){
 	ListNodePtr startPtr = NULL;
