@@ -1,8 +1,9 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 struct listNode{
 	char data;
-	struct ListNode *nextPtr;
+	struct listNode *nextPtr;
 };
 typedef struct listNode ListNode;
 typedef ListNode *ListNodePtr;
@@ -36,8 +37,6 @@ void insert(ListNodePtr *sPtr, char value){
 	}	
 }
 
-
-
 void printList(ListNodePtr currentPtr){
 
 	printf("Oringinal Linked List: ");
@@ -49,7 +48,6 @@ void printList(ListNodePtr currentPtr){
 	
 	puts("NULL\n");
 } 
-
 
 void printRevList(ListNodePtr sPtr){
 
@@ -74,11 +72,6 @@ void printRevList(ListNodePtr sPtr){
 		}
 }
 		
-	
-	
-	
-
-
 int main(){
 	ListNodePtr startPtr = NULL;
 	insert(&startPtr, 'a');
