@@ -7,6 +7,37 @@ struct listNode{
 typedef struct listNode ListNode;
 typedef ListNode *ListNodePtr;
 
+void insert(ListNodePtr *sPtr, char value){
+	ListNodePtr newPtr;
+	ListNodePtr previousPtr;
+	ListNodePtr currentPtr;
+	
+	newPtr = malloc(sizeof(ListNode));
+	
+	if(newPtr != NULL){
+		newPtr->data = value;
+		newPtr->nextPtr = NULL;
+		
+		previousPtr = NULL;
+		currentPtr = *sPtr; 
+		
+		while(currentPtr != NULL && value > currentPtr->data){
+			previousPtr = currentPtr;
+			currentPtr = currentPtr->nextPtr;
+		}
+		if(previousPtr == NULL){
+			newPtr->nextPtr = *sPtr;
+			*sPtr = newPtr;
+		}
+		else{
+			previousPtr->nextPtr = newPtr;
+			newPtr->nextPtr = currentPtr;
+		}	
+	}	
+}
+
+
+
 void printList(ListNodePtr currentPtr){
 
 	printf("Oringinal Linked List: ");
@@ -27,24 +58,29 @@ void printRevList(ListNodePtr *sPtr){
 	ListNodePtr precedingPtr = (*sPtr)->nextPtr;
 	
 	while(precedingPtr != NULL){
-		currentPtr = previousPtr; // §âcurrent->nextÂà¦V
-		previousPtr = currentPtr; // previous©¹«á®¿
-		currentPtr = precedingPtr->nextPtr; // current©¹«á®¿
-		precedingPtr = precedingPtr->nextPtr; // preceding§ó·s¦¨NULL§Y¸õ¥Xwhile loop
+		currentPtr = previousPtr; // æŠŠcurrent->nextè½‰å‘
+		previousPtr = currentPtr; // previouså¾€å¾ŒæŒª
+		currentPtr = precedingPtr->nextPtr; // currentå¾€å¾ŒæŒª
+		precedingPtr = precedingPtr->nextPtr; // precedingæ›´æ–°æˆNULLå³è·³å‡ºwhile loop
 	}
-	currentPtr->nextPtr = previousPtr; // ¦¹®Écurrent¦ì©ó³Ì«á¤@­Ónode, ±Ncurrent->nextÂà¦V
-	*sPtr = currentPtr;          // §ó·sfirst¬°current
+	currentPtr->nextPtr = previousPtr; // æ­¤æ™‚currentä½æ–¼æœ€å¾Œä¸€å€‹node, å°‡current->nextè½‰å‘
+	*sPtr = currentPtr;          // æ›´æ–°firstç‚ºcurrent
 	printf("Reverse Linked List: ");
-	printList(currentPtr);
+	puts("NULL<--");
+	while(currentPtr != NULL){
+		printf("%c<--", currentPtr->data);
+		currentPtr = currentPtr->nextPtr;
+	}
 	
 }
 
 int main(){
-	ListNodePtr startPtr;
-	startPtr->data = 'a';
-	startPtr->nextPtr->data = 'b';
-	startPtr->nextPtr->nextPtr->data = 'c';
+	ListNodePtr startPtr = NULL;
+	insert(startPtr, 'a');
+	insert(startPtr, 'b');
+	insert(startPtr, 'c');
 	
-	printList(startPtr); 
+	printList(startPtr);
+	printRevList(startPtr);
 		
 } 
